@@ -3,6 +3,9 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!-- import resource file -->
+    <import resource="file:${user.dir}\src\test\resources\spring-test.xml" />
+
     <bean id="getBeanTest" class="com.yjy.lookup.GetBeanTest">
         <lookup-method name="getBean" bean="student" />
     </bean>
