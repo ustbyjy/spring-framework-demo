@@ -12,7 +12,7 @@
 
     <properties>
         <!-- dependencies -->
-        <spring.version>3.2.18.RELEASE</spring.version>
+        <spring.version>4.3.16.RELEASE</spring.version>
         <aspectjweaver.version>1.7.4</aspectjweaver.version>
         <junit.version>4.12</junit.version>
         <commons-fileupload>1.2.1</commons-fileupload>
@@ -21,6 +21,8 @@
         <servlet>3.1.0</servlet>
         <slf4j.version>1.6.6</slf4j.version>
         <logback.version>1.1.2</logback.version>
+        <lombok.version>1.16.20</lombok.version>
+        <jackson.version>2.9.5</jackson.version>
         <!-- plugins -->
         <jdk.version>1.7</jdk.version>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
@@ -114,6 +116,30 @@
             <version>${logback.version}</version>
         </dependency>
         <!-- Logging end -->
+        <!-- Jackson start -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <!-- Jackson end -->
+        <!-- Others begin -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+        <!-- Others end -->
     </dependencies>
 
     <build>

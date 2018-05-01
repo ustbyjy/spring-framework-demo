@@ -39,7 +39,8 @@
         <property name="maxUploadSize" value="10000000" />
     </bean>
 
-    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+    <!--<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <property name="warnLogCategory" value="warn" />
-    </bean>
+    </bean>-->
+
 </beans>

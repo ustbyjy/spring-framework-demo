@@ -23,4 +23,10 @@ public class IndexController {
         return "success";
     }
 
+    @RequestMapping("/exception")
+    @ResponseBody
+    public String testException() {
+        throw new RuntimeException();
+    }
+
 }
