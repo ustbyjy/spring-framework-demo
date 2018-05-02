@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class IndexController {
@@ -18,7 +19,7 @@ public class IndexController {
 
     @RequestMapping("/demo")
     @ResponseBody
-    public String demo(HttpServletRequest request, String sign) {
+    public String demo(HttpServletRequest request, HttpServletResponse response, String sign) {
         System.out.println(sign);
         return "success";
     }

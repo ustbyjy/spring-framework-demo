@@ -5,7 +5,7 @@
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>${APP_NAME}: %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %p - %c %m%n</pattern>
+            <pattern>${APP_NAME}: %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %p - %c %method %m%n</pattern>
         </encoder>
     </appender>
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -15,7 +15,7 @@
             <MaxHistory>30</MaxHistory>
         </rollingPolicy>
         <encoder>
-            <pattern>${APP_NAME}: %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %p - %c %m%n</pattern>
+            <pattern>${APP_NAME}: %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %p - %c %method %m%n</pattern>
         </encoder>
     </appender>
 
