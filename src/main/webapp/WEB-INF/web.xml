@@ -15,6 +15,15 @@
         <listener-class>com.yjy.listener.MyDataContextListener</listener-class>
     </listener>
 
+    <filter>
+        <filter-name>myCorsFilter</filter-name>
+        <filter-class>com.yjy.filter.MyCorsFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>myCorsFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>helloServlet</servlet-name>
         <servlet-class>com.yjy.servlet.HelloServlet</servlet-class>
