@@ -11,7 +11,6 @@ public class MyDataContextListener implements ServletContextListener {
     }
 
     @Override
-
     public void contextInitialized(ServletContextEvent sce) {
         System.out.println("MyDataContextListener init...");
         this.context = sce.getServletContext();
