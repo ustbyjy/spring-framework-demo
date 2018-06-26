@@ -5,6 +5,7 @@
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
+            <!-- 此处引用了LogbackListener中注入的系统变量 -->
             <pattern>${APP_NAME}-${customSystemProperty}: %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %p - %c %method %m%n</pattern>
         </encoder>
     </appender>
