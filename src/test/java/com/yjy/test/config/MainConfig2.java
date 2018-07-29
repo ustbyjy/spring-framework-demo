@@ -1,11 +1,10 @@
 package com.yjy.test.config;
 
 import com.yjy.test.bean.Person;
+import com.yjy.test.condition.LinuxCondition;
+import com.yjy.test.condition.WindowsCondition;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.*;
 
 @Configuration
 public class MainConfig2 {
@@ -28,6 +27,18 @@ public class MainConfig2 {
     public Person person01() {
         System.out.println("person01()");
         return new Person("王五", 40);
+    }
+
+    @Conditional(value = {WindowsCondition.class})
+    @Bean(value = "bill")
+    public Person person02() {
+        return new Person("Bill Gates", 62);
+    }
+
+    @Conditional(value = {LinuxCondition.class})
+    @Bean(value = "linus")
+    public Person person03() {
+        return new Person("Linus", 48);
     }
 
 }

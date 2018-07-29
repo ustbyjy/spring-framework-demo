@@ -1,5 +1,6 @@
 package com.yjy.test;
 
+import com.yjy.test.bean.Person;
 import com.yjy.test.config.MainConfig;
 import com.yjy.test.config.MainConfig2;
 import org.junit.Test;
@@ -37,5 +38,19 @@ public class IOCTest {
         applicationContext.getBean("person01");
         System.out.println("get bean end");
     }
+
+    @Test
+    public void test04() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig2.class);
+
+        String osName = applicationContext.getEnvironment().getProperty("os.name");
+        System.out.println(osName);
+
+        String[] beanDefinitionNames = applicationContext.getBeanNamesForType(Person.class);
+        for (String beanDefinitionName : beanDefinitionNames) {
+            System.out.println(beanDefinitionName);
+        }
+    }
+
 
 }
