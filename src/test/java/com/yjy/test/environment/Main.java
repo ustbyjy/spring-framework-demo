@@ -1,4 +1,4 @@
-package com.yjy.environment;
+package com.yjy.test.environment;
 
 public class Main {
     public static void main(String[] args) {

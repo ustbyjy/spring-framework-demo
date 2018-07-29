@@ -1,4 +1,4 @@
-package com.yjy.lookup.bean;
+package com.yjy.test.bean;
 
 public class Student extends User {
 

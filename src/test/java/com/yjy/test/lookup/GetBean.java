@@ -1,8 +1,8 @@
-package com.yjy.lookup;
+package com.yjy.test.lookup;
 
-import com.yjy.lookup.bean.User;
+import com.yjy.test.bean.User;
 
-public abstract class GetBeanTest {
+public abstract class GetBean {
 
     public void showMe() {
         this.getBean().showMe();

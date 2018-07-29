@@ -1,4 +1,4 @@
-package com.yjy.resource;
+package com.yjy.test.resource;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;

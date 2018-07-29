@@ -6,10 +6,10 @@
     <!-- import resource file -->
     <import resource="file:${user.dir}\src\test\resources\spring-test.xml" />
 
-    <bean id="getBeanTest" class="com.yjy.lookup.GetBeanTest">
+    <bean id="getBean" class="com.yjy.test.lookup.GetBean">
         <lookup-method name="getBean" bean="student" />
     </bean>
 
-    <bean id="teacher" class="com.yjy.lookup.bean.Teacher" />
-    <bean id="student" class="com.yjy.lookup.bean.Student" />
+    <bean id="teacher" class="com.yjy.test.bean.Teacher" />
+    <bean id="student" class="com.yjy.test.bean.Student" />
 </beans>

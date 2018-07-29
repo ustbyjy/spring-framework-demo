@@ -1,4 +1,4 @@
-package com.yjy.spel;
+package com.yjy.test.spel;
 
 import org.junit.Test;
 import org.springframework.expression.Expression;
