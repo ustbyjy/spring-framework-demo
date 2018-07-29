@@ -6,10 +6,9 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:component-scan base-package="com.yjy.test" use-default-filters="false">
-
     </context:component-scan>
 
-    <bean id="person" class="com.yjy.test.bean.Person">
+    <bean id="person" class="com.yjy.test.bean.Person" scope="prototype" lazy-init="true">
         <property name="name" value="zhangsan" />
         <property name="age" value="18" />
     </bean>
