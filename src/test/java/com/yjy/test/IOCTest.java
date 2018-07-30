@@ -1,10 +1,9 @@
 package com.yjy.test;
 
 import com.yjy.test.bean.Person;
-import com.yjy.test.config.MainConfig;
-import com.yjy.test.config.MainConfig2;
-import com.yjy.test.config.MainConfigOfLifeCycle;
-import com.yjy.test.config.MainConfigOfPropertyValue;
+import com.yjy.test.config.*;
+import com.yjy.test.dao.BookDao;
+import com.yjy.test.service.BookService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -104,6 +103,16 @@ public class IOCTest {
 
         Environment environment = applicationContext.getEnvironment();
         System.out.println(environment.getProperty("person.nickName"));
+    }
+
+    @Test
+    public void testAutowired() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfAutowired.class);
+        BookService bookService = applicationContext.getBean(BookService.class);
+        System.out.println(bookService);
+
+//        BookDao bookDao = applicationContext.getBean(BookDao.class);
+//        System.out.println(bookDao);
     }
 
 }
