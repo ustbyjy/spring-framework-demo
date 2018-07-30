@@ -4,9 +4,11 @@ import com.yjy.test.bean.Person;
 import com.yjy.test.config.MainConfig;
 import com.yjy.test.config.MainConfig2;
 import com.yjy.test.config.MainConfigOfLifeCycle;
+import com.yjy.test.config.MainConfigOfPropertyValue;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.core.env.Environment;
 
 public class IOCTest {
 
@@ -86,6 +88,22 @@ public class IOCTest {
     public void testLifeCycle() {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfLifeCycle.class);
         ((AnnotationConfigApplicationContext) applicationContext).close();
+    }
+
+    @Test
+    public void testPropertyValue() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfPropertyValue.class);
+        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
+        for (String beanDefinitionName : beanDefinitionNames) {
+            System.out.println(beanDefinitionName);
+        }
+        System.out.println("===================================");
+
+        Person person = (Person) applicationContext.getBean("person");
+        System.out.println(person);
+
+        Environment environment = applicationContext.getEnvironment();
+        System.out.println(environment.getProperty("person.nickName"));
     }
 
 }
