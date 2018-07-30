@@ -61,4 +61,24 @@ public class IOCTest {
         }
     }
 
+    @Test
+    public void testFactoryBean() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig.class);
+
+        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
+        for (String beanDefinitionName : beanDefinitionNames) {
+            System.out.println(beanDefinitionName);
+        }
+
+        // 获取工厂bean创建的对象
+        Object bean = applicationContext.getBean("colorFactoryBean");
+        Object bean2 = applicationContext.getBean("colorFactoryBean");
+        System.out.println(bean.getClass());
+        System.out.println(bean == bean2);
+
+        // 加前缀&，获取工厂bean本身
+        Object factoryBean = applicationContext.getBean("&colorFactoryBean");
+        System.out.println(factoryBean.getClass());
+    }
+
 }

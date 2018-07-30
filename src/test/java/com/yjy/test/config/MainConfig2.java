@@ -1,6 +1,7 @@
 package com.yjy.test.config;
 
 import com.yjy.test.bean.Color;
+import com.yjy.test.bean.ColorFactoryBean;
 import com.yjy.test.bean.Person;
 import com.yjy.test.condition.LinuxCondition;
 import com.yjy.test.condition.MyImportBeanDefinitionRegistrar;
@@ -48,6 +49,11 @@ public class MainConfig2 {
     @Bean(value = "linus")
     public Person person03() {
         return new Person("Linus", 48);
+    }
+
+    @Bean
+    public ColorFactoryBean colorFactoryBean() {
+        return new ColorFactoryBean();
     }
 
 }
