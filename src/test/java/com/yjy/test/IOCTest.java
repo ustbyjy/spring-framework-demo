@@ -52,5 +52,13 @@ public class IOCTest {
         }
     }
 
+    @Test
+    public void testImport() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig.class);
+        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
+        for (String beanDefinitionName : beanDefinitionNames) {
+            System.out.println(beanDefinitionName);
+        }
+    }
 
 }

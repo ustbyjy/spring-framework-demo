@@ -1,12 +1,21 @@
 package com.yjy.test.config;
 
+import com.yjy.test.bean.Color;
 import com.yjy.test.bean.Person;
 import com.yjy.test.condition.LinuxCondition;
+import com.yjy.test.condition.MyImportBeanDefinitionRegistrar;
+import com.yjy.test.condition.MyImportSelector;
 import com.yjy.test.condition.WindowsCondition;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.*;
 
+/**
+ * Color.class: regular component classes<br>
+ * MyImportSelector.class: ImportSelector<br>
+ * MyImportBeanDefinitionRegistrar: ImportBeanDefinitionRegistrar
+ */
 @Configuration
+@Import(value = {Color.class, MyImportSelector.class, MyImportBeanDefinitionRegistrar.class})
 public class MainConfig2 {
 
     /**
