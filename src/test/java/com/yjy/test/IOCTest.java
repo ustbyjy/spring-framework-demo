@@ -3,6 +3,7 @@ package com.yjy.test;
 import com.yjy.test.bean.Person;
 import com.yjy.test.config.MainConfig;
 import com.yjy.test.config.MainConfig2;
+import com.yjy.test.config.MainConfigOfLifeCycle;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -54,7 +55,7 @@ public class IOCTest {
 
     @Test
     public void testImport() {
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig.class);
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig2.class);
         String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
         for (String beanDefinitionName : beanDefinitionNames) {
             System.out.println(beanDefinitionName);
@@ -63,7 +64,7 @@ public class IOCTest {
 
     @Test
     public void testFactoryBean() {
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig.class);
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig2.class);
 
         String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
         for (String beanDefinitionName : beanDefinitionNames) {
@@ -79,6 +80,12 @@ public class IOCTest {
         // 加前缀&，获取工厂bean本身
         Object factoryBean = applicationContext.getBean("&colorFactoryBean");
         System.out.println(factoryBean.getClass());
+    }
+
+    @Test
+    public void testLifeCycle() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfLifeCycle.class);
+        ((AnnotationConfigApplicationContext) applicationContext).close();
     }
 
 }
