@@ -25,6 +25,8 @@
         <lombok.version>1.16.20</lombok.version>
         <jackson.version>2.9.0</jackson.version>
         <inject.version>1</inject.version>
+        <mysql-connector.version>5.1.46</mysql-connector.version>
+        <druid.version>1.1.10</druid.version>
         <!-- plugins -->
         <jdk.version>1.8</jdk.version>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
@@ -94,6 +96,18 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <!-- DB begin -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-connector.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${druid.version}</version>
+        </dependency>
+        <!-- DB end -->
         <!-- Commons begin -->
         <dependency>
             <groupId>commons-fileupload</groupId>

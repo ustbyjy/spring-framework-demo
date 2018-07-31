@@ -11,6 +11,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.env.Environment;
 
+import javax.sql.DataSource;
+
 public class IOCTest {
 
     @Test
@@ -130,6 +132,34 @@ public class IOCTest {
 
         Color color = applicationContext.getBean(Color.class);
         System.out.println(color);
+    }
+
+    /**
+     * 方式1: 指定spring.profiles.active参数，通过JVM启动或者web.xml
+     */
+    @Test
+    public void testProfile() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfProfile.class);
+        String[] beanNamesForType = applicationContext.getBeanNamesForType(DataSource.class);
+        for (String beanName : beanNamesForType) {
+            System.out.println(beanName);
+        }
+    }
+
+    /**
+     * 方式2: ConfigurableEnvironment.setActiveProfiles()代码方式
+     */
+    @Test
+    public void testProfile2() {
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
+        applicationContext.getEnvironment().setActiveProfiles("test", "dev");
+        applicationContext.register(MainConfigOfProfile.class);
+        applicationContext.refresh();
+
+        String[] beanNamesForType = applicationContext.getBeanNamesForType(DataSource.class);
+        for (String beanName : beanNamesForType) {
+            System.out.println(beanName);
+        }
     }
 
 }
