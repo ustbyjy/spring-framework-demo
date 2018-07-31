@@ -24,6 +24,7 @@
         <logback-ext-spring.version>0.1.5</logback-ext-spring.version>
         <lombok.version>1.16.20</lombok.version>
         <jackson.version>2.9.0</jackson.version>
+        <inject.version>1</inject.version>
         <!-- plugins -->
         <jdk.version>1.8</jdk.version>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
@@ -149,6 +150,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>${inject.version}</version>
         </dependency>
         <!-- Others end -->
     </dependencies>
