@@ -12,7 +12,7 @@
 
     <properties>
         <!-- dependencies -->
-        <spring.version>4.3.16.RELEASE</spring.version>
+        <spring.version>4.3.18.RELEASE</spring.version>
         <aspectjweaver.version>1.8.9</aspectjweaver.version>
         <junit.version>4.12</junit.version>
         <commons-fileupload>1.2.1</commons-fileupload>
