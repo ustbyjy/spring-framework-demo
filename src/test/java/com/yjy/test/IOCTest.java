@@ -5,11 +5,13 @@ import com.yjy.test.bean.Car;
 import com.yjy.test.bean.Color;
 import com.yjy.test.bean.Person;
 import com.yjy.test.config.*;
+import com.yjy.test.ext.ExtConfig;
 import com.yjy.test.service.BookService;
 import com.yjy.test.tx.TxConfig;
 import com.yjy.test.tx.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationEvent;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.env.Environment;
 
@@ -169,6 +171,18 @@ public class IOCTest {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(TxConfig.class);
         UserService userService = applicationContext.getBean(UserService.class);
         userService.insertUser();
+    }
+
+    @Test
+    public void testExt() {
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(ExtConfig.class);
+
+        applicationContext.publishEvent(new ApplicationEvent("我发布了一个事件") {
+        });
+
+        Person person = applicationContext.getBean(Person.class);
+        System.out.println(person);
+        applicationContext.close();
     }
 
 }
