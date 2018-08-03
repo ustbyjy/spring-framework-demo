@@ -55,6 +55,7 @@ public class AsyncController {
         DeferredResult<String> deferredResult = deferredResultMap.get(uuid);
         if (deferredResult != null) {
             deferredResult.setResult(uuid);
+//            deferredResult.setErrorResult(new RuntimeException("deferredResult error"));
         }
 
         return "success";
