@@ -2,7 +2,6 @@ package com.yjy.task;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,7 +9,7 @@ import java.util.Date;
 /**
  * 比较 fixedRate，fixedDelay，cron 三种定义任务，尤其是执行长度超过周期如何处理
  */
-@Component
+//@Component
 @Slf4j
 public class CustomTask {
 

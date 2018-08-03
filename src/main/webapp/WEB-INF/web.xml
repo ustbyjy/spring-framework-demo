@@ -28,6 +28,7 @@
     <filter>
         <filter-name>myCorsFilter</filter-name>
         <filter-class>com.yjy.filter.MyCorsFilter</filter-class>
+        <async-supported>true</async-supported>
     </filter>
     <filter-mapping>
         <filter-name>myCorsFilter</filter-name>
@@ -51,6 +52,7 @@
             <param-value>classpath:spring-mvc.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
+        <async-supported>true</async-supported>
     </servlet>
     <servlet-mapping>
         <servlet-name>dispatcherServlet</servlet-name>
