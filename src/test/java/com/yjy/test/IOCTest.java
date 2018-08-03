@@ -1,9 +1,6 @@
 package com.yjy.test;
 
-import com.yjy.test.bean.Boss;
-import com.yjy.test.bean.Car;
-import com.yjy.test.bean.Color;
-import com.yjy.test.bean.Person;
+import com.yjy.test.bean.*;
 import com.yjy.test.config.*;
 import com.yjy.test.ext.ExtConfig;
 import com.yjy.test.service.BookService;
@@ -13,6 +10,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.env.Environment;
 
 import javax.sql.DataSource;
@@ -182,6 +180,20 @@ public class IOCTest {
 
         Person person = applicationContext.getBean(Person.class);
         System.out.println(person);
+        applicationContext.close();
+    }
+
+    @Test
+    public void testRefresh() {
+        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:beans.xml");
+
+        Yellow yellow = applicationContext.getBean(Yellow.class);
+        System.out.println(yellow.hashCode());
+
+        applicationContext.refresh();
+        yellow = applicationContext.getBean(Yellow.class);
+        System.out.println(yellow.hashCode());
+
         applicationContext.close();
     }
 

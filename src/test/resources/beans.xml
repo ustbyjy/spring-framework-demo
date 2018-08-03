@@ -15,4 +15,6 @@
         <property name="age" value="18" />
     </bean>
 
+    <bean id="yellow" class="com.yjy.test.bean.Yellow" />
+
 </beans>
