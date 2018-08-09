@@ -7,6 +7,11 @@ public class CustomDispatcherServlet extends DispatcherServlet {
 
     public CustomDispatcherServlet() {
         super();
+
+        initContextConfigLocation();
+    }
+
+    private void initContextConfigLocation() {
         super.setContextConfigLocation("file:D:/IdeaProjects/spring-framework-demo/config/spring-mvc.xml");
     }
 
