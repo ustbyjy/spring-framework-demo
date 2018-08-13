@@ -14,7 +14,14 @@ public class CustomContextLoaderListener extends ContextLoaderListener {
     }
 
     private void initContextConfigLocation(ServletContext context) {
-        context.setInitParameter(CONFIG_LOCATION_PARAM, "file:D:/IdeaProjects/spring-framework-demo/config/applicationContext.xml");
+        String path;
+        if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+            path = "D:/IdeaProjects/spring-framework-demo/config/";
+        } else {
+            path = System.getProperty("catalina.home") + "/config/";
+        }
+
+        context.setInitParameter(CONFIG_LOCATION_PARAM, "file:" + path + "applicationContext.xml");
     }
 
 }

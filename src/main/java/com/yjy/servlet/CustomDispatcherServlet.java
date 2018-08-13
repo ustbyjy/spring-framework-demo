@@ -12,7 +12,14 @@ public class CustomDispatcherServlet extends DispatcherServlet {
     }
 
     private void initContextConfigLocation() {
-        super.setContextConfigLocation("file:D:/IdeaProjects/spring-framework-demo/config/spring-mvc.xml");
+        String path;
+        if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+            path = "D:/IdeaProjects/spring-framework-demo/config/";
+        } else {
+            path = System.getProperty("catalina.home") + "/config/";
+        }
+
+        super.setContextConfigLocation("file:" + path + "spring-mvc.xml");
     }
 
 }
