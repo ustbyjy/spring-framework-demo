@@ -6,7 +6,7 @@
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <!-- 此处引用了LogbackListener中注入的系统变量 -->
-            <pattern>${APP_NAME}-${customSystemProperty}: %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %p - %c %method %m%n</pattern>
+            <pattern>${APP_NAME}-${customSystemProperty}: %d{yyyy-MM-dd HH:mm:ss.SSS} [%X{traceId}] [%thread] %p - %c %m%n</pattern>
         </encoder>
     </appender>
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -16,7 +16,7 @@
             <MaxHistory>30</MaxHistory>
         </rollingPolicy>
         <encoder>
-            <pattern>${APP_NAME}: %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %p - %c %method %m%n</pattern>
+            <pattern>${APP_NAME}: %d{yyyy-MM-dd HH:mm:ss.SSS} [%X{traceId}] [%thread] %p - %c %m%n</pattern>
         </encoder>
     </appender>
 
@@ -25,4 +25,5 @@
         <appender-ref ref="STDOUT" />
         <appender-ref ref="FILE" />
     </root>
+
 </configuration>
